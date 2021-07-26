@@ -1,38 +1,185 @@
-.App {
-  text-align: center;
+body {
+  font-family: "Montserrat", sans-serif !important;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+button.login {
+  box-shadow: none !important;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+ion-icon.arrow {
+  font-size: 15px !important;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.big-container {
+  margin: 100px auto;
+}
+.buttons-buy {
+  transform: translateY(-29px);
+}
+footer {
+  background-color: #6a6868;
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+h5.title-footer {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+footer p {
+  line-height: 16px;
+}
+nav {
+  background: white !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+.navbar-toggler {
+  box-shadow: none !important;
+}
+.navbar .navbar-brand {
+  color: #ffc164 !important;
+  font-size: 25px;
+}
+.brand {
+  font-weight: bold;
+}
+.navbar ul li.nav-item {
+  font-weight: bold;
+  color: black;
+}
+input.rounded-pill {
+  border-color: #ffc164;
+  box-shadow: none !important;
+}
+button.rounded-pill {
+  background: #ffc164;
+  color: white;
+  font-weight: bold;
+  border: none;
+  width: 120px;
+}
+button.login:hover {
+  background: #ffc164;
+}
+.jumbotron {
+  background-image: url("./img/jumbotron.jpg");
+  height: 360px;
+  position: relative;
+  /* margin-top: 30px; */
+  background-size: cover;
+}
+.jumbotron::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: black;
+  opacity: 0.6;
+}
+.jumbotron div.text-center {
+  z-index: 2;
+  color: white;
+}
+.title-jumbotron {
+  font-weight: 700;
+}
+.title-jumbotron span {
+  color: #ffc164;
+  font-weight: bold;
+  font-style: italic;
+}
+.jumbotron div.text-center p span {
+  color: #ffc164;
+  font-weight: 600;
+}
+.container-collection {
+  margin-top: 70px;
+}
+.title-collection {
+  width: max-content;
+}
+.title-collection hr {
+  width: 75%;
+  background: #ffc164;
+  margin: auto;
+  opacity: 1;
+  border: 1px solid #ffc164;
+}
+.container-collection .img-sale {
+  transition: 0.3s;
+  position: relative;
+}
+.container-collection .img-sale:hover {
+  opacity: 0.4;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* ukuran hp */
+@media (max-width: 575.98px) {
+  nav {
+    /* background: red; */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   }
-  to {
-    transform: rotate(360deg);
+  input.search {
+    display: none;
   }
+  button.login {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .jumbotron div.text-center p {
+    margin-top: 75px;
+  }
+  .jumbotron h1 {
+    transform: translateY(30px);
+  }
+  .col-img-sale {
+    margin-bottom: 35px;
+    width: 50% !important;
+  }
+  .img-sale {
+    height: 230px !important;
+    width: 100%;
+  }
+  .col-img-sale p.view-produk {
+    font-size: 14px;
+  }
+  h5.name-collection {
+    font-size: 18px;
+  }
+}
+
+/* // Small devices (landscape phones, less than 768px) */
+@media (min-width: 575.98px) and (max-width: 767.98px) {
+  input.search {
+    display: none;
+  }
+  button.login {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .jumbotron div.text-center p {
+    margin-top: 75px;
+  }
+  .jumbotron h1 {
+    transform: translateY(30px);
+  }
+  .col-img-sale {
+    margin-bottom: 35px;
+    width: 50% !important;
+  }
+  .img-sale {
+    height: 250px !important;
+    width: 100%;
+  }
+}
+
+/* // Medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) {
+}
+
+/* Large devices (desktops, less than 1200px) */
+@media (max-width: 1199.98px) {
+}
+
+/* X-Large devices (large desktops, less than 1400px) */
+@media (max-width: 1399.98px) {
 }

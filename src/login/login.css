@@ -1,0 +1,159 @@
+* {
+  outline: none;
+}
+.part-logo {
+  background: #ffc164;
+  height: 100vh;
+  position: relative;
+}
+.logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 55%;
+}
+h4.brand-login {
+  color: #ffc164;
+  margin: 25px !important;
+}
+div.form-login {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+div.input-data {
+  width: 60%;
+  margin: 50px auto 0;
+  position: relative;
+}
+div.input-data label {
+  position: absolute;
+  top: 8px;
+  left: 0;
+  pointer-events: none;
+  color: grey;
+  transition: 0.3s ease-in;
+}
+.input-data input:focus ~ label,
+.input-data input:valid ~ label {
+  transform: translateY(-25px);
+  color: #ffc164;
+  font-weight: bold;
+}
+input.input-login-password {
+  border: none;
+  border-bottom: 2px solid grey;
+  margin-bottom: 30px;
+  display: block;
+  margin: auto;
+  width: 100%;
+  height: 35px;
+}
+.input-data span.underline {
+  position: absolute;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+}
+.input-data span.underline:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: #ffc164;
+  transform: scale(0);
+  transition: 0.5s ease-in;
+}
+
+.input-data input:focus ~ span.underline:before,
+.input-data input:valid ~ span.underline:before {
+  transform: scale(1);
+}
+
+.form-check {
+  margin: 30px auto 0;
+  width: 60%;
+}
+button.login:active,
+button.login:hover {
+  background: #ffc164;
+}
+button.btn-part-login {
+  box-shadow: none !important;
+  margin: 25px auto 0;
+  display: block;
+}
+
+/* X-Small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+  .big-container {
+    margin-top: 50px !important;
+  }
+  div.input-data {
+    width: 80%;
+    margin: 50px auto 0;
+    position: relative;
+  }
+  .form-check,
+  button.btn-part-login {
+    width: 80% !important;
+  }
+  div.form-login {
+    position: absolute;
+    top: 90px;
+    left: 50%;
+    transform: translateX(-40%);
+  }
+}
+
+/* Small devices (landscape phones, less than 768px) */
+@media (min-width: 575.99px) and (max-width: 767.98px) {
+  .big-container {
+    margin-top: 50px !important;
+  }
+  div.input-data {
+    width: 70%;
+    margin: 50px auto 0;
+    position: relative;
+  }
+  .form-check,
+  button.btn-part-login {
+    width: 70% !important;
+  }
+  div.form-login {
+    position: absolute;
+    top: 90px;
+    left: 50%;
+    transform: translateX(-40%);
+  }
+}
+
+/* Medium devices (tablets, less than 992px) */
+@media (min-width: 767.99px) and (max-width: 991.98px) {
+  div.input-data {
+    width: 80%;
+    margin: 50px auto 0;
+    position: relative;
+  }
+  .form-check,
+  .btn-part-login {
+    width: 80% !important;
+  }
+  div.form-login {
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* Large devices (desktops, less than 1200px) */
+@media (max-width: 1199.98px) {
+}
+
+/* X-Large devices (large desktops, less than 1400px) */
+@media (max-width: 1399.98px) {
+}

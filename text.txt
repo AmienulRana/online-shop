@@ -1,0 +1,84 @@
+import React, { useState } from "react";
+import {
+  Input,
+  Button,
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+  NavbarText,
+} from "reactstrap";
+
+import { Link } from "react-router-dom";
+
+const Navigasi = (props) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggle = () => setIsOpen(!isOpen);
+
+  return (
+    <Navbar light expand="md">
+      <div className="container">
+        <NavbarBrand href="/">
+          Your<span className="brand">Brand</span>
+        </NavbarBrand>
+        <NavbarToggler onClick={toggle} />
+        <Collapse isOpen={isOpen} navbar>
+          <Nav className="m-auto" navbar>
+            <NavItem>
+              <Link to="/" className="nav-link">
+                Home
+              </Link>
+            </NavItem>
+            <UncontrolledDropdown nav inNavbar>
+              <DropdownToggle nav caret>
+                Category
+              </DropdownToggle>
+              <DropdownMenu right>
+                <DropdownItem>
+                  <Link to="/category/jacket" className="nav-link">
+                    Jacket
+                  </Link>
+                </DropdownItem>
+                <DropdownItem>
+                  <Link to="/category/shirt" className="nav-link">
+                    Shirt
+                  </Link>
+                </DropdownItem>
+                <DropdownItem>
+                  <Link to="/category/t-shirt" className="nav-link">
+                    t-shirt
+                  </Link>
+                </DropdownItem>
+              </DropdownMenu>
+            </UncontrolledDropdown>
+          </Nav>
+          <Nav className="ml-0" navbar>
+            <NavItem>
+              <NavLink>
+                <Input className="rounded-pill search" placeholder="Search" />
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink>
+                {" "}
+                <Link to="/login" className="nav-link">
+                  <Button className="rounded-pill login">Sign In</Button>
+                </Link>
+              </NavLink>
+            </NavItem>
+          </Nav>
+        </Collapse>
+      </div>
+    </Navbar>
+  );
+};
+
+export default Navigasi;

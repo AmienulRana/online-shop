@@ -1,0 +1,96 @@
+button {
+  border: none;
+  outline: none;
+}
+.img-detail {
+  height: 300px;
+  display: block;
+  margin: auto;
+  border: 4px solid #ffc164;
+}
+.detail-baju span {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-left: 10px;
+  border: 1px solid #ffc164;
+}
+.detail-baju span.active {
+  background: #ffc164;
+}
+.basic-shirt {
+  border: 1px solid #ffc164;
+}
+.div-size {
+  padding-bottom: 10px !important;
+  border-bottom: 1px solid #ffc164;
+}
+.div-color,
+.div-size,
+.div-qty {
+  padding: 0 20px 0;
+}
+.div-color .choise-color,
+.choise-size {
+  border: 2px solid #ffc164;
+}
+.div-color .color,
+.div-size .size {
+  width: 25px;
+  height: 25px;
+  margin-right: 20px;
+}
+.div-size .size {
+  text-align: center;
+  line-height: 25px;
+  background-color: #c4c4c4;
+}
+button.plus-minus {
+  width: 25px;
+  height: 25px;
+  background: #c4c4c4;
+}
+.total-harga-qty {
+  font-weight: bold !important;
+  color: red;
+}
+button.beli,
+button.add-to-cart {
+  font-weight: bold;
+  margin: 10px 0;
+  color: white;
+}
+button.beli {
+  background: #ffc164;
+  width: 25%;
+}
+button.add-to-cart {
+  width: 35%;
+  background: black;
+}
+@media (max-width: 575.98px) {
+  .detail-baju {
+    margin: auto;
+  }
+  .basic-shirt {
+    margin: 30px auto 0 !important;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .detail-baju {
+    margin: auto;
+  }
+  .basic-shirt {
+    margin: 30px auto 0 !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+}
+
+@media (min-width: 1200px) {
+}
