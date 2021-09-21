@@ -1,15 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Row, Col, Button } from "reactstrap";
 import blackShirt from "../img/product/black-shirt.png";
 import kemeja from "../img/product/kemeja.png";
 import jacketCoklat from "../img/product/jacket-Coklat.jpg";
+import { Link } from "react-router-dom";
+import axios from "axios";
 
-const products = [
-  { nama: "Black t-shirt", src: blackShirt, kategori: "shirt", harga: 15 },
-  { nama: "Kemeja", src: kemeja, kategori: "kemeja", harga: 22 },
-  { nama: "Jacket coklat", src: jacketCoklat, kategori: "jacket", harga: 20 },
-];
+const api = "http://localhost:4000/";
 const HomeProduct = () => {
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    axios.get(api + "products").then((res) => setProducts(res.data.data));
+  }, []);
+  console.log(products);
   return (
     <Container className="big-container">
       <div className="title-collection">
@@ -20,27 +23,37 @@ const HomeProduct = () => {
         {products.map((product, id) => {
           return (
             <Col className="col-10 col-md-3 col-img-sale" key={id}>
-              <img src={product.src} className="img-fluid img-sale" />
+              <Link
+                to={{
+                  pathname: "detail/" + product._id,
+                }}
+              >
+                <img
+                  src={api + "images/" + product.photo}
+                  className="img-fluid img-sale"
+                  alt={product.nama_product}
+                />
+              </Link>
               <div className="mt-3">
                 <div className="d-flex justify-content-between">
-                  <h5 className="fw-bold name-collection">{product.nama}</h5>
+                  <h5 className="fw-bold name-collection">
+                    {product.nama_product}
+                  </h5>
                   <p style={{ color: "red" }} className="harga fw-bold">
-                    ${product.harga}
+                    Rp.{product.harga}
                   </p>
                 </div>
                 <hr style={{ transform: "translateY(-25px)" }} />
                 <div className="buttons-buy d-flex justify-content-between">
-                  <Button
-                    color="warning badge"
-                    className=""
-                    style={{ height: "max-content", color: "white" }}
-                  >
-                    Buy
-                  </Button>{" "}
-                  <ion-icon
-                    name="cart"
-                    style={{ fontSize: 24 + "px" }}
-                  ></ion-icon>
+                  <Link to={"detail/" + product._id}>
+                    <Button
+                      color="warning badge"
+                      className=""
+                      style={{ height: "max-content", color: "white" }}
+                    >
+                      Buy
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </Col>

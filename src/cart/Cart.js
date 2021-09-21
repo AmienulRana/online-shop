@@ -1,10 +1,29 @@
-import React from "react";
+import React, { useContext, useState, useEffect } from "react";
 import Navbar from "../Navbar";
 import { Container, Row, Col } from "reactstrap";
 import blackShirt from "../img/product/black-shirt.png";
+import AddToCart from "../fungsi/AddToCart";
+import { Redirect } from "react-router-dom";
 import "./cart.css";
-
+import Authorized from "../Authorized";
+import axios from "axios";
+const api = "http://localhost:4000/";
 const Cart = () => {
+  // const authorized = useContext(Authorized);
+  const [carts, setCarts] = useState([]);
+
+  useEffect(() => {
+    axios.get(api + "orders").then((response) => setCarts(response.data.data));
+  }, []);
+
+  // hanya orang yg sudah login yg boleh masuk ke halaman cart
+  const AccessToken = localStorage.getItem("aToken");
+  if (AccessToken === null) {
+    return <Redirect to="/login" />;
+  }
+  const total_harga = carts.reduce((total, cart) => {
+    return total + cart.harga;
+  }, 0);
   return (
     <React.Fragment>
       <Navbar />
@@ -13,25 +32,39 @@ const Cart = () => {
           <Col className="col-lg-4 col-md-4 col-orderan col-9">
             <h5>Your Order</h5>
             <hr />
-            <div className="row mb-4">
-              <Col className="col-4">
-                <img src={blackShirt} className="img-cover img-fluid" />
-              </Col>
-              <Col className="col-8">
-                <h6 className="fw-bold">Black t-shirt</h6>
-                <p>Size : M</p>
-                <p>Color : Black</p>
-                <div className="d-flex justify-content-between">
-                  <div className="d-flex">
-                    <button className="plus-minus">-</button>
-                    <p className="qty mx-3">1</p>
-                    <button className="plus-minus">+</button>
-                  </div>
-                  <p className="total-harga-qty" style={{ color: "red" }}>
-                    $22
-                  </p>
+            {carts.map((cart) => {
+              return (
+                <div className="row mb-4" key={cart.id}>
+                  <Col className="col-3">
+                    <img
+                      src={api + "image/" + cart.gambar}
+                      className="img-cover img-fluid"
+                    />
+                  </Col>
+                  <Col className="col-8">
+                    <h6 className="fw-bold">{cart.nama_product}</h6>
+                    {/*<p>Size : {cart.size}</p>*/}
+                    {/*<p>Color : Black</p> */}
+                    <div className="d-flex justify-content-between">
+                      <div className="d-flex">
+                        <button className="plus-minus">-</button>
+                        <p className="qty mx-3">{cart.qty}</p>
+                        <button className="plus-minus">+</button>
+                      </div>
+                      <p className="total-harga-qty" style={{ color: "red" }}>
+                        Rp.{cart.harga * cart.qty}
+                      </p>
+                    </div>
+                  </Col>
                 </div>
-              </Col>
+              );
+            })}
+            <hr />
+            <div className="d-flex justify-content-between">
+              <h6 className="fw-bold">total harga :</h6>
+              <h6 className="fw-bold" style={{ color: "red" }}>
+                Rp.{total_harga}
+              </h6>
             </div>
           </Col>
           <Col className="col-lg-5 col-md-6 col-addres col-10">
@@ -67,7 +100,7 @@ const Cart = () => {
                     borderRadius: 10 + "px",
                   }}
                 >
-                  Pay $59
+                  Pay
                 </button>
               </div>
               <div className="d-flex align-items-center">

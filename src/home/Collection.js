@@ -12,7 +12,7 @@ const thumbCollection = [
     nama: "t-shirt",
     src: tShirt,
     kategori: "t-shirt",
-    href: "/category/t-shirt",
+    href: "/category/kaos",
   },
 ];
 const Collection = () => {

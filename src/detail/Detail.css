@@ -27,11 +27,19 @@ button {
 }
 .div-color,
 .div-size,
-.div-qty {
+.div-qty,
+.desc {
   padding: 0 20px 0;
 }
-.div-color .choise-color,
-.choise-size {
+.desc {
+  margin-top: 25px;
+}
+.desc p {
+  color: #c4c4c4;
+  font-size: 15px;
+}
+.div-color #choise-color,
+#choise-size {
   border: 2px solid #ffc164;
 }
 .div-color .color,
@@ -44,6 +52,11 @@ button {
   text-align: center;
   line-height: 25px;
   background-color: #c4c4c4;
+}
+input.qty {
+  width: 30px;
+  height: 25px;
+  text-align: center;
 }
 button.plus-minus {
   width: 25px;

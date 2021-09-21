@@ -28,6 +28,16 @@ div.input-data {
   margin: 50px auto 0;
   position: relative;
 }
+div.error-email {
+  width: 60%;
+  margin: auto;
+}
+div.error-email p {
+  color: red;
+  font-weight: bold;
+  font-size: 14px;
+  margin-top: 5px;
+}
 div.input-data label {
   position: absolute;
   top: 8px;
@@ -41,6 +51,7 @@ div.input-data label {
   transform: translateY(-25px);
   color: #ffc164;
   font-weight: bold;
+  font-size: 14px;
 }
 input.input-login-password {
   border: none;
@@ -77,14 +88,31 @@ input.input-login-password {
   margin: 30px auto 0;
   width: 60%;
 }
+.validation-email {
+  margin: 10px auto 0 !important;
+}
+.validation-email span {
+  color: red;
+  font-weight: 600;
+}
 button.login:active,
 button.login:hover {
   background: #ffc164;
 }
+
 button.btn-part-login {
   box-shadow: none !important;
   margin: 25px auto 0;
   display: block;
+  background: transparent;
+  border: 1px solid #ffc164 !important;
+  color: #ffc164;
+  height: 35px;
+  font-weight: bold;
+  border: none;
+  width: 120px;
+  transition: 0.3s;
+  border-radius: 25px;
 }
 
 /* X-Small devices (portrait phones, less than 576px) */
@@ -96,6 +124,9 @@ button.btn-part-login {
     width: 80%;
     margin: 50px auto 0;
     position: relative;
+  }
+  div.error-email {
+    width: 80%;
   }
   .form-check,
   button.btn-part-login {
@@ -119,6 +150,9 @@ button.btn-part-login {
     margin: 50px auto 0;
     position: relative;
   }
+  div.error-email {
+    width: 70%;
+  }
   .form-check,
   button.btn-part-login {
     width: 70% !important;
@@ -137,6 +171,9 @@ button.btn-part-login {
     width: 80%;
     margin: 50px auto 0;
     position: relative;
+  }
+  div.error-email {
+    width: 80%;
   }
   .form-check,
   .btn-part-login {
